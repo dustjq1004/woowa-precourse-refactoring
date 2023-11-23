@@ -2,7 +2,7 @@ package lotto.controller;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
-import lotto.controller.service.LottoService;
+import lotto.controller.service.LottoCreateService;
 import lotto.controller.service.StatisticsService;
 import lotto.model.Bonus;
 import lotto.model.Lotto;
@@ -15,12 +15,12 @@ import lotto.view.OutputView;
 public class LottoProgram {
     InputView inputView;
     OutputView outputView;
-    LottoService lottoService;
+    LottoCreateService lottoCreateService;
 
-    public LottoProgram(InputView inputView, OutputView outputView, LottoService lottoService) {
+    public LottoProgram(InputView inputView, OutputView outputView, LottoCreateService lottoCreateService) {
         this.inputView = inputView;
         this.outputView = outputView;
-        this.lottoService = lottoService;
+        this.lottoCreateService = lottoCreateService;
     }
 
     public void start() {
@@ -30,7 +30,7 @@ public class LottoProgram {
     }
 
     private List<Lotto> purchaseLottoNumbers(LottoMoney money) {
-        List<Lotto> lottos = lottoService.createLottoNumbers(money);
+        List<Lotto> lottos = lottoCreateService.createLottoNumbers(money);
         outputView.printBuyingLotto(lottos);
         return lottos;
     }
