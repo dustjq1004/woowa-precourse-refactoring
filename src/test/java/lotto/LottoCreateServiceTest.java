@@ -44,7 +44,7 @@ class LottoCreateServiceTest {
     void purchaseLottoTest(int money, int count) {
         LottoCreateService lottoCreateService = new LottoCreateService(new LottoGenerator());
         LottoMoney lottoMoney = new LottoMoney(money);
-        List<Lotto> lottos = lottoCreateService.createLottoNumbers(lottoMoney);
+        List<Lotto> lottos = lottoCreateService.createRandomLottoNumbers(lottoMoney);
         Assertions.assertThat(lottos.size()).isEqualTo(count);
     }
 }

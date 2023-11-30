@@ -30,7 +30,7 @@ public class LottoProgram {
     }
 
     private List<Lotto> purchaseLottoNumbers(LottoMoney money) {
-        List<Lotto> lottos = lottoCreateService.createLottoNumbers(money);
+        List<Lotto> lottos = lottoCreateService.createRandomLottoNumbers(money);
         outputView.printBuyingLotto(lottos);
         return lottos;
     }
@@ -47,6 +47,5 @@ public class LottoProgram {
         WiningStatistics winingStatistics =
                 statisticsService.calculateWiningStatistics(winingNumbers, lottos);
         outputView.printWiningStatistics(winingStatistics);
-        Console.close();
     }
 }

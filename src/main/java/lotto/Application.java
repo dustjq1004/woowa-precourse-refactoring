@@ -1,5 +1,6 @@
 package lotto;
 
+import camp.nextstep.edu.missionutils.Console;
 import lotto.controller.LottoProgram;
 import lotto.controller.service.LottoCreateService;
 import lotto.utils.LottoGenerator;
@@ -11,6 +12,6 @@ public class Application {
         LottoProgram lottoProgram = new LottoProgram(new InputView(), new OutputView()
                 , new LottoCreateService(new LottoGenerator()));
         lottoProgram.start();
-
+        Console.close();
     }
 }
