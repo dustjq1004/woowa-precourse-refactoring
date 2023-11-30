@@ -8,9 +8,8 @@ import lotto.model.WiningTypeCount;
 
 public class StatisticsService {
 
-    public WiningStatistics calculateWiningStatistics(WiningNumbers winingNumbers, List<Lotto> lottos) {
-        WiningTypeCount winingTypeCount = winingNumbers.countWining(lottos);
-        double rateOfReturn = winingTypeCount.calculateRateOfReturn(lottos);
+    public WiningStatistics calculateWiningStatistics(WiningTypeCount winingTypeCount, int lottoCount) {
+        double rateOfReturn = winingTypeCount.calculateRateOfReturn(lottoCount);
         return new WiningStatistics(winingTypeCount, rateOfReturn);
     }
 }

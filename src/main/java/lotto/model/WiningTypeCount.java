@@ -15,9 +15,9 @@ public class WiningTypeCount {
         this.winingCountMap = winingCountMap;
     }
 
-    public double calculateRateOfReturn(List<Lotto> lottos) {
-        long amount = sumAmount();
-        double money = lottos.size() * LOTTO_PRICE;
+    public double calculateRateOfReturn(final int lottoCount) {
+        final long amount = sumAmount();
+        double money = lottoCount * LOTTO_PRICE;
         double rateOfReturn = Math.round((amount / money) * DECIMAL_POINT) / DECIMAL_POINT * HUNDRED_RATE;
         return rateOfReturn;
     }
