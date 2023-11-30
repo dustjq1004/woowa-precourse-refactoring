@@ -1,6 +1,7 @@
 package lotto.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.List;
 import lotto.model.Bonus;
 import lotto.model.Lotto;
 import lotto.model.LottoMoney;
@@ -16,41 +17,23 @@ public class InputView {
     private static final String DELIMITER_COMMA = ",";
 
     public LottoMoney printMoney() {
-        while (true) {
-            try {
-                System.out.println(INPUT_MONEY);
-                String money = Console.readLine();
-                ViewValidation.validateNumeric(money);
-                return new LottoMoney(Integer.parseInt(money));
-            } catch (IllegalArgumentException exception) {
-                System.out.println(exception.getMessage());
-            }
-        }
+        System.out.println(INPUT_MONEY);
+        String money = Console.readLine();
+        ViewValidation.validateNumeric(money);
+        return new LottoMoney(Integer.parseInt(money));
     }
 
-    public Lotto printWiningNumbers() {
-        while (true) {
-            try {
-                System.out.println(INPUT_WINING_NUMBERS);
-                String numbers = Console.readLine();
-                ViewValidation.validateCommaNumeric(numbers);
-                return new Lotto(StringUtils.asListByDelimiter(numbers, DELIMITER_COMMA));
-            } catch (IllegalArgumentException exception) {
-                System.out.println(exception.getMessage());
-            }
-        }
+    public List<Integer> printWiningNumbers() {
+        System.out.println(INPUT_WINING_NUMBERS);
+        String numbers = Console.readLine();
+        ViewValidation.validateCommaNumeric(numbers);
+        return StringUtils.asListByDelimiter(numbers, DELIMITER_COMMA);
     }
 
-    public Bonus printBonusNumber() {
-        while (true) {
-            try {
-                System.out.println(NEW_LINE + INPUT_BONUS_NUMBER);
-                String number = Console.readLine();
-                ViewValidation.validateNumeric(number);
-                return new Bonus(Integer.parseInt(number));
-            } catch (IllegalArgumentException exception) {
-                System.out.println(exception.getMessage());
-            }
-        }
+    public int printBonusNumber() {
+        System.out.println(NEW_LINE + INPUT_BONUS_NUMBER);
+        String number = Console.readLine();
+        ViewValidation.validateNumeric(number);
+        return Integer.parseInt(number);
     }
 }

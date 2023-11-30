@@ -11,7 +11,7 @@ public class Application {
     public static void main(String[] args) {
         LottoProgram lottoProgram = new LottoProgram(new InputView(), new OutputView()
                 , new LottoCreateService(new LottoGenerator()));
-        lottoProgram.start();
+        lottoProgram.run();
         Console.close();
     }
 }

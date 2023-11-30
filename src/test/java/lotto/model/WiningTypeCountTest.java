@@ -23,7 +23,7 @@ class WiningTypeCountTest {
         WiningTypeCount winingTypeCount = winingNumbers.countWining(lottos);
 
         // then
-        Assertions.assertEquals(winingTypeCount.calculateRateOfReturn(lottos), 100);
+        Assertions.assertEquals(winingTypeCount.calculateRateOfReturn(lottos.size()), 100);
     }
 
     @Test
@@ -38,6 +38,6 @@ class WiningTypeCountTest {
         WiningTypeCount winingTypeCount = winingNumbers.countWining(lottos);
 
         // then
-        Assertions.assertEquals(winingTypeCount.calculateRateOfReturn(lottos), 500);
+        Assertions.assertEquals(winingTypeCount.calculateRateOfReturn(lottos.size()), 500);
     }
 }
