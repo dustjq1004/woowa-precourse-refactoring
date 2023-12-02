@@ -8,18 +8,12 @@ import lotto.domain.generator.LottoGenerator;
 
 public class LottoCreateService {
 
-    private LottoGenerator lottoGenerator;
-
-    public LottoCreateService(LottoGenerator lottoGenerator) {
-        this.lottoGenerator = lottoGenerator;
-    }
-
     public List<Lotto> createRandomLottoNumbers(LottoMoney money) {
-        return lottoGenerator.generatorLottoTicket(money.calculateCountLottoPrice());
+        return LottoGenerator.generatorLottoTicket(money.calculateCountLottoPrice());
     }
 
     public Lotto createWinningLotto(List<Integer> numbers) {
-        return lottoGenerator.generatorLotto(numbers);
+        return LottoGenerator.generatorLotto(numbers);
     }
 
     public Bonus createWinningLottoBonus(int bonus) {
