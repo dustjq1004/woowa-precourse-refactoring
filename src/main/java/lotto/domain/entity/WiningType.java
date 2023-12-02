@@ -1,4 +1,4 @@
-package lotto.model;
+package lotto.domain.entity;
 
 import java.util.Arrays;
 import java.util.Comparator;

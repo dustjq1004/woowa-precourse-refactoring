@@ -3,8 +3,8 @@ package lotto;
 
 import java.util.List;
 import lotto.controller.service.LottoCreateService;
-import lotto.model.Lotto;
-import lotto.model.LottoMoney;
+import lotto.domain.entity.Lotto;
+import lotto.domain.entity.LottoMoney;
 import lotto.utils.LottoGenerator;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;

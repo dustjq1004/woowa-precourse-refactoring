@@ -1,9 +1,9 @@
 package lotto.controller.service;
 
 import java.util.List;
-import lotto.model.Lotto;
-import lotto.model.WiningNumbers;
-import lotto.model.WiningTypeCount;
+import lotto.domain.entity.Lotto;
+import lotto.domain.entity.WiningNumbers;
+import lotto.domain.entity.WiningTypeCount;
 
 public class LottoMatchService {
 

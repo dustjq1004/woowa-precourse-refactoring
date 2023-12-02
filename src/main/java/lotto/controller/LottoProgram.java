@@ -6,11 +6,11 @@ import java.util.function.Supplier;
 import lotto.controller.service.LottoCreateService;
 import lotto.controller.service.LottoMatchService;
 import lotto.controller.service.StatisticsService;
-import lotto.model.Bonus;
-import lotto.model.Lotto;
-import lotto.model.WiningNumbers;
-import lotto.model.WiningStatistics;
-import lotto.model.WiningTypeCount;
+import lotto.domain.entity.Bonus;
+import lotto.domain.entity.Lotto;
+import lotto.domain.entity.WiningNumbers;
+import lotto.domain.entity.WiningStatistics;
+import lotto.domain.entity.WiningTypeCount;
 import lotto.view.InputView;
 import lotto.view.OutputView;
 

@@ -1,6 +1,8 @@
-package lotto.model;
+package lotto.domain;
 
 import java.util.Arrays;
+import lotto.domain.entity.Lotto;
+import lotto.domain.entity.WiningType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -76,5 +78,5 @@ public class WiningTypeTest {
         //then
         Assertions.assertEquals(winingType, WiningType.FIVE);
     }
-    
+
 }

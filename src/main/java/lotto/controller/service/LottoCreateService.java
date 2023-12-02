@@ -1,9 +1,9 @@
 package lotto.controller.service;
 
 import java.util.List;
-import lotto.model.Bonus;
-import lotto.model.Lotto;
-import lotto.model.LottoMoney;
+import lotto.domain.entity.Bonus;
+import lotto.domain.entity.Lotto;
+import lotto.domain.entity.LottoMoney;
 import lotto.utils.LottoGenerator;
 
 public class LottoCreateService {

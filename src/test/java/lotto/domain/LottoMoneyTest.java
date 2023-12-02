@@ -1,7 +1,8 @@
-package lotto.model;
+package lotto.domain;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import lotto.domain.entity.LottoMoney;
 import org.junit.jupiter.api.Test;
 
 class LottoMoneyTest {

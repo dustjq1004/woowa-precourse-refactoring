@@ -2,9 +2,7 @@ package lotto.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
-import lotto.model.Bonus;
-import lotto.model.Lotto;
-import lotto.model.LottoMoney;
+import lotto.domain.entity.LottoMoney;
 import lotto.utils.StringUtils;
 import lotto.validation.ViewValidation;
 

@@ -1,6 +1,11 @@
-package lotto.model;
+package lotto.domain;
 
 import java.util.List;
+import lotto.domain.entity.Bonus;
+import lotto.domain.entity.Lotto;
+import lotto.domain.entity.WiningNumbers;
+import lotto.domain.entity.WiningType;
+import lotto.domain.entity.WiningTypeCount;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

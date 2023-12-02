@@ -1,10 +1,10 @@
 package lotto.view;
 
 import java.util.List;
-import lotto.model.Lotto;
-import lotto.model.WiningStatistics;
-import lotto.model.WiningType;
-import lotto.model.WiningTypeCount;
+import lotto.domain.entity.Lotto;
+import lotto.domain.entity.WiningStatistics;
+import lotto.domain.entity.WiningType;
+import lotto.domain.entity.WiningTypeCount;
 
 public class OutputView {
 

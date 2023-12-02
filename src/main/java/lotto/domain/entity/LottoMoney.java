@@ -1,4 +1,4 @@
-package lotto.model;
+package lotto.domain.entity;
 
 import static lotto.utils.Constants.LOTTO_PRICE;
 

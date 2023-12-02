@@ -1,4 +1,4 @@
-package lotto.model;
+package lotto.domain.entity;
 
 public class WiningStatistics {
 

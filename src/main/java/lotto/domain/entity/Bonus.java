@@ -1,4 +1,4 @@
-package lotto.model;
+package lotto.domain.entity;
 
 import static lotto.exception.ExceptionMessage.MESSAGE_RANGE_NUMBER;
 import static lotto.utils.Constants.MAX_LOTTO_NUMBER;

@@ -1,10 +1,9 @@
-package lotto.model;
+package lotto.domain.entity;
 
 import static lotto.utils.Constants.DECIMAL_POINT;
 import static lotto.utils.Constants.HUNDRED_RATE;
 import static lotto.utils.Constants.LOTTO_PRICE;
 
-import java.util.List;
 import java.util.Map;
 
 public class WiningTypeCount {
