@@ -3,7 +3,7 @@ package lotto;
 import camp.nextstep.edu.missionutils.Console;
 import lotto.controller.LottoProgram;
 import lotto.controller.service.LottoCreateService;
-import lotto.utils.LottoGenerator;
+import lotto.domain.generator.LottoGenerator;
 import lotto.view.InputView;
 import lotto.view.OutputView;
 

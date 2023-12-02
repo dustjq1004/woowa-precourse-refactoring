@@ -5,7 +5,7 @@ import java.util.List;
 import lotto.controller.service.LottoCreateService;
 import lotto.domain.entity.Lotto;
 import lotto.domain.entity.LottoMoney;
-import lotto.utils.LottoGenerator;
+import lotto.domain.generator.LottoGenerator;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;

@@ -1,8 +1,8 @@
 package lotto.domain.entity;
 
+import static lotto.common.Constants.MAX_LOTTO_NUMBER;
+import static lotto.common.Constants.MIN_LOTTO_NUMBER;
 import static lotto.exception.ExceptionMessage.MESSAGE_RANGE_NUMBER;
-import static lotto.utils.Constants.MAX_LOTTO_NUMBER;
-import static lotto.utils.Constants.MIN_LOTTO_NUMBER;
 
 import lotto.exception.ClientException;
 

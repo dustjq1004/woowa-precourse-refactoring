@@ -2,8 +2,8 @@ package lotto.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
+import lotto.common.StringUtils;
 import lotto.domain.entity.LottoMoney;
-import lotto.utils.StringUtils;
 import lotto.validation.ViewValidation;
 
 public class InputView {

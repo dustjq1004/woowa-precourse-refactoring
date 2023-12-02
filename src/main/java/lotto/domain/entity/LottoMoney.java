@@ -1,6 +1,6 @@
 package lotto.domain.entity;
 
-import static lotto.utils.Constants.LOTTO_PRICE;
+import static lotto.common.Constants.LOTTO_PRICE;
 
 import lotto.validation.ModelValidation;
 

@@ -1,8 +1,8 @@
 package lotto.domain.entity;
 
-import static lotto.utils.Constants.DECIMAL_POINT;
-import static lotto.utils.Constants.HUNDRED_RATE;
-import static lotto.utils.Constants.LOTTO_PRICE;
+import static lotto.common.Constants.DECIMAL_POINT;
+import static lotto.common.Constants.HUNDRED_RATE;
+import static lotto.common.Constants.LOTTO_PRICE;
 
 import java.util.Map;
 

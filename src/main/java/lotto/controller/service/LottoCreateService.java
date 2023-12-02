@@ -4,7 +4,7 @@ import java.util.List;
 import lotto.domain.entity.Bonus;
 import lotto.domain.entity.Lotto;
 import lotto.domain.entity.LottoMoney;
-import lotto.utils.LottoGenerator;
+import lotto.domain.generator.LottoGenerator;
 
 public class LottoCreateService {
 

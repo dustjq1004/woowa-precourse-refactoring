@@ -1,21 +1,21 @@
 package lotto.validation;
 
+import static lotto.common.Constants.LIMIT_MONEY;
+import static lotto.common.Constants.LOTTO_PRICE;
+import static lotto.common.Constants.MAX_LOTTO_NUMBER;
+import static lotto.common.Constants.MIN_LOTTO_NUMBER;
+import static lotto.common.Constants.REMAINDER_ZERO;
 import static lotto.exception.ExceptionMessage.MESSAGE_DUPLICATE_NUMBER;
 import static lotto.exception.ExceptionMessage.MESSAGE_LIMIT_MONEY;
 import static lotto.exception.ExceptionMessage.MESSAGE_LIMIT_SIZE;
 import static lotto.exception.ExceptionMessage.MESSAGE_RANGE_NUMBER;
 import static lotto.exception.ExceptionMessage.MESSAGE_THOUSAND_UNIT;
-import static lotto.utils.Constants.LIMIT_MONEY;
-import static lotto.utils.Constants.LOTTO_PRICE;
-import static lotto.utils.Constants.MAX_LOTTO_NUMBER;
-import static lotto.utils.Constants.MIN_LOTTO_NUMBER;
-import static lotto.utils.Constants.REMAINDER_ZERO;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import lotto.common.Constants;
 import lotto.exception.ClientException;
-import lotto.utils.Constants;
 
 public class ModelValidation {
 
