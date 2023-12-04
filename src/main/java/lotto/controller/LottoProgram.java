@@ -8,9 +8,9 @@ import lotto.controller.service.LottoMatchService;
 import lotto.controller.service.StatisticsService;
 import lotto.domain.entity.Bonus;
 import lotto.domain.entity.Lotto;
+import lotto.domain.entity.MatchCount;
 import lotto.domain.entity.WiningNumbers;
 import lotto.domain.entity.WiningStatistics;
-import lotto.domain.entity.WiningTypeCount;
 import lotto.view.InputView;
 import lotto.view.OutputView;
 
@@ -29,8 +29,8 @@ public class LottoProgram {
         List<Lotto> lottoTicket = executeMethod(this::purchaseLottoNumbers);
         Lotto winingNumbers = executeMethod(this::getWiningNumbers);
         Bonus bonus = executeMethod(this::getBonusNumber);
-        WiningTypeCount winingTypeCount = matchLotto(lottoTicket, new WiningNumbers(winingNumbers, bonus));
-        result(winingTypeCount, lottoTicket.size());
+        MatchCount matchCount = matchLotto(lottoTicket, new WiningNumbers(winingNumbers, bonus));
+        result(matchCount, lottoTicket.size());
     }
 
     private <T> T executeMethod(Supplier<Optional<T>> methodInput) {
@@ -72,15 +72,15 @@ public class LottoProgram {
         }
     }
 
-    private WiningTypeCount matchLotto(List<Lotto> lottoTicket, WiningNumbers winingNumbers) {
+    private MatchCount matchLotto(List<Lotto> lottoTicket, WiningNumbers winingNumbers) {
         LottoMatchService lottoMatchService = new LottoMatchService();
         return lottoMatchService.matchLottoTicket(winingNumbers, lottoTicket);
     }
 
-    private void result(WiningTypeCount winingTypeCount, int lottoCount) {
+    private void result(MatchCount matchCount, int lottoCount) {
         StatisticsService statisticsService = new StatisticsService();
         WiningStatistics winingStatistics =
-                statisticsService.calculateWiningStatistics(winingTypeCount, lottoCount);
+                statisticsService.calculateWiningStatistics(matchCount, lottoCount);
         outputView.printWiningStatistics(winingStatistics);
     }
 }

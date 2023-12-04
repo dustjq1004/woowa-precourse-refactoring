@@ -3,12 +3,12 @@ package lotto.domain;
 import java.util.List;
 import lotto.domain.entity.Bonus;
 import lotto.domain.entity.Lotto;
+import lotto.domain.entity.MatchCount;
 import lotto.domain.entity.WiningNumbers;
-import lotto.domain.entity.WiningTypeCount;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class WiningTypeCountTest {
+class MatchCountTest {
 
     @Test
     void 수익률이_백프로다() {
@@ -24,10 +24,10 @@ class WiningTypeCountTest {
 
         // when
         WiningNumbers winingNumbers = new WiningNumbers(wining, bonus);
-        WiningTypeCount winingTypeCount = winingNumbers.countWining(lottos);
+        MatchCount matchCount = winingNumbers.countWining(lottos);
 
         // then
-        Assertions.assertEquals(winingTypeCount.calculateRateOfReturn(lottos.size()), 100);
+        Assertions.assertEquals(matchCount.calculateRateOfReturn(lottos.size()), 100);
     }
 
     @Test
@@ -39,9 +39,9 @@ class WiningTypeCountTest {
 
         // when
         WiningNumbers winingNumbers = new WiningNumbers(wining, bonus);
-        WiningTypeCount winingTypeCount = winingNumbers.countWining(lottos);
+        MatchCount matchCount = winingNumbers.countWining(lottos);
 
         // then
-        Assertions.assertEquals(winingTypeCount.calculateRateOfReturn(lottos.size()), 500);
+        Assertions.assertEquals(matchCount.calculateRateOfReturn(lottos.size()), 500);
     }
 }

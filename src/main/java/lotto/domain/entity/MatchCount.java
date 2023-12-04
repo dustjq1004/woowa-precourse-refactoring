@@ -4,14 +4,15 @@ import static lotto.common.Constants.DECIMAL_POINT;
 import static lotto.common.Constants.HUNDRED_RATE;
 import static lotto.common.Constants.LOTTO_PRICE;
 
+import java.util.Collections;
 import java.util.Map;
 
-public class WiningTypeCount {
+public class MatchCount {
 
-    private final Map<WiningType, Integer> winingCountMap;
+    private final Map<WiningType, Integer> matchCount;
 
-    public WiningTypeCount(final Map<WiningType, Integer> winingCountMap) {
-        this.winingCountMap = winingCountMap;
+    public MatchCount(final Map<WiningType, Integer> matchCount) {
+        this.matchCount = matchCount;
     }
 
     public double calculateRateOfReturn(final int lottoCount) {
@@ -23,13 +24,13 @@ public class WiningTypeCount {
 
     private long sumAmount() {
         long totAmount = 0;
-        for (WiningType winingType : winingCountMap.keySet()) {
-            totAmount += winingCountMap.getOrDefault(winingType, 0) * winingType.getAmount();
+        for (WiningType winingType : matchCount.keySet()) {
+            totAmount += matchCount.getOrDefault(winingType, 0) * winingType.getAmount();
         }
         return totAmount;
     }
 
-    public int getWiningCount(WiningType winingType) {
-        return winingCountMap.get(winingType);
+    public Map<WiningType, Integer> getMatchCount() {
+        return Collections.unmodifiableMap(matchCount);
     }
 }

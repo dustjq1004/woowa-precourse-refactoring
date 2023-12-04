@@ -1,10 +1,10 @@
 package lotto.view;
 
 import java.util.List;
+import java.util.Map;
 import lotto.domain.entity.Lotto;
 import lotto.domain.entity.WiningStatistics;
 import lotto.domain.entity.WiningType;
-import lotto.domain.entity.WiningTypeCount;
 
 public class OutputView {
 
@@ -32,16 +32,16 @@ public class OutputView {
         stringBuffer.append(NEW_LINE);
         stringBuffer.append(OUTPUT_WINING_HEADER);
         stringBuffer.append(OUTPUT_THREE_BAR);
-        WiningTypeCount winingTypeCount = statistics.getWiningTypeCount();
+        Map<WiningType, Integer> matchCount = statistics.matchCount();
         for (WiningType winingType : WiningType.getWiningCountEmptyMap().keySet()) {
-            addWiningCountString(winingType, stringBuffer, winingTypeCount);
+            addWiningCountString(winingType, stringBuffer, matchCount);
         }
-        stringBuffer.append(String.format(OUTPUT_RATE_OF_RETUN, statistics.getRateOfReturn()));
+        stringBuffer.append(String.format(OUTPUT_RATE_OF_RETUN, statistics.rateOfReturn()));
         System.out.println(stringBuffer);
     }
 
     private void addWiningCountString(WiningType winingType, StringBuffer stringBuffer
-            , WiningTypeCount winingTypeCount) {
+            , Map<WiningType, Integer> matchCount) {
         if (winingType == WiningType.ZERO) {
             return;
         }
@@ -52,7 +52,7 @@ public class OutputView {
         }
         stringBuffer.append(String.format(OUTPUT_WINING_AMOUNT, winingType.getAmount()));
         stringBuffer.append(OUTPUT_BAR);
-        stringBuffer.append(String.format(OUTPUT_WINING_COUNT, winingTypeCount.getWiningCount(winingType)));
+        stringBuffer.append(String.format(OUTPUT_WINING_COUNT, matchCount.get(winingType)));
         stringBuffer.append(NEW_LINE);
     }
 }

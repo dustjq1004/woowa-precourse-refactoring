@@ -13,7 +13,7 @@ public class WiningNumbers {
         this.bonus = bonus;
     }
 
-    public WiningTypeCount countWining(List<Lotto> lottos) {
+    public MatchCount countWining(List<Lotto> lottos) {
         Map<WiningType, Integer> winingCountMap = WiningType.getWiningCountEmptyMap();
         lottos.forEach(lotto -> {
             int correctCount = lotto.countCorrectNumbers(numbers);
@@ -21,6 +21,6 @@ public class WiningNumbers {
             WiningType wining = WiningType.findByWiningType(correctCount, hasBonus);
             winingCountMap.computeIfPresent(wining, (key, count) -> ++count);
         });
-        return new WiningTypeCount(winingCountMap);
+        return new MatchCount(winingCountMap);
     }
 }

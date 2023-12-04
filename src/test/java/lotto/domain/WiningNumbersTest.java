@@ -3,9 +3,9 @@ package lotto.domain;
 import java.util.List;
 import lotto.domain.entity.Bonus;
 import lotto.domain.entity.Lotto;
+import lotto.domain.entity.MatchCount;
 import lotto.domain.entity.WiningNumbers;
 import lotto.domain.entity.WiningType;
-import lotto.domain.entity.WiningTypeCount;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -23,8 +23,8 @@ class WiningNumbersTest {
         );
 
         // when
-        WiningTypeCount winingTypeCount = winingNumbers.countWining(lottos);
-        int winingCount = winingTypeCount.getWiningCount(WiningType.FIVE);
+        MatchCount matchCount = winingNumbers.countWining(lottos);
+        int winingCount = matchCount.getMatchCount().get(WiningType.FIVE);
 
         // then
         Assertions.assertEquals(winingCount, 1);
@@ -42,8 +42,8 @@ class WiningNumbersTest {
         );
 
         // when
-        WiningTypeCount winingTypeCount = winingNumbers.countWining(lottos);
-        int winingCount = winingTypeCount.getWiningCount(WiningType.FIVE);
+        MatchCount matchCount = winingNumbers.countWining(lottos);
+        int winingCount = matchCount.getMatchCount().get(WiningType.FIVE);
 
         // then
         Assertions.assertEquals(winingCount, 2);
@@ -61,8 +61,8 @@ class WiningNumbersTest {
         );
 
         // when
-        WiningTypeCount winingTypeCount = winingNumbers.countWining(lottos);
-        int winingCount = winingTypeCount.getWiningCount(WiningType.ONE);
+        MatchCount matchCount = winingNumbers.countWining(lottos);
+        int winingCount = matchCount.getMatchCount().get(WiningType.ONE);
 
         // then
         Assertions.assertEquals(winingCount, 1);
@@ -86,8 +86,8 @@ class WiningNumbersTest {
         );
 
         // when
-        WiningTypeCount winingTypeCount = winingNumbers.countWining(lottos);
-        int winingCount = winingTypeCount.getWiningCount(WiningType.TWO);
+        MatchCount matchCount = winingNumbers.countWining(lottos);
+        int winingCount = matchCount.getMatchCount().get(WiningType.TWO);
 
         // then
         Assertions.assertEquals(winingCount, 10);

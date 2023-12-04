@@ -1,21 +1,9 @@
 package lotto.domain.entity;
 
-public class WiningStatistics {
+import java.util.Map;
 
-    private final WiningTypeCount winingTypeCount;
-    private final double rateOfReturn;
-
-    public WiningStatistics(WiningTypeCount winingTypeCount, double rateOfReturn) {
-        this.winingTypeCount = winingTypeCount;
-        this.rateOfReturn = rateOfReturn;
-    }
-
-    public double getRateOfReturn() {
-        return rateOfReturn;
-    }
-
-    public WiningTypeCount getWiningTypeCount() {
-        return winingTypeCount;
-    }
-
+public record WiningStatistics(
+        Map<WiningType, Integer> matchCount,
+        double rateOfReturn
+) {
 }
