@@ -11,18 +11,22 @@ import lotto.domain.entity.Lotto;
 import lotto.domain.entity.MatchCount;
 import lotto.domain.entity.WiningNumbers;
 import lotto.domain.entity.WiningStatistics;
+import lotto.exception.ExceptionHandler;
 import lotto.view.InputView;
 import lotto.view.OutputView;
 
 public class LottoProgram {
-    InputView inputView;
-    OutputView outputView;
-    LottoCreateService lottoCreateService;
+    private final InputView inputView;
+    private final OutputView outputView;
+    private final LottoCreateService lottoCreateService;
+    private final ExceptionHandler exceptionHandler;
 
-    public LottoProgram(InputView inputView, OutputView outputView, LottoCreateService lottoCreateService) {
+    public LottoProgram(InputView inputView, OutputView outputView, LottoCreateService lottoCreateService,
+                        ExceptionHandler exceptionHandler) {
         this.inputView = inputView;
         this.outputView = outputView;
         this.lottoCreateService = lottoCreateService;
+        this.exceptionHandler = exceptionHandler;
     }
 
     public void run() {
@@ -36,40 +40,25 @@ public class LottoProgram {
     private <T> T executeMethod(Supplier<Optional<T>> methodInput) {
         Optional<T> result;
         do {
-            result = methodInput.get();
+            result = exceptionHandler.get(methodInput);
         } while (result.isEmpty());
         return result.get();
     }
 
     private Optional<List<Lotto>> purchaseLottoNumbers() {
-        try {
-            List<Lotto> lottoTicket = lottoCreateService.createRandomLottoNumbers(inputView.printMoney());
-            outputView.printBuyingLotto(lottoTicket);
-            return Optional.of(lottoTicket);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            return Optional.empty();
-        }
+        List<Lotto> lottoTicket = lottoCreateService.createRandomLottoNumbers(inputView.printMoney());
+        outputView.printBuyingLotto(lottoTicket);
+        return Optional.of(lottoTicket);
     }
 
     private Optional<Lotto> getWiningNumbers() {
-        try {
-            Lotto winingNumbers = lottoCreateService.createWinningLotto(inputView.printWiningNumbers());
-            return Optional.of(winingNumbers);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            return Optional.empty();
-        }
+        Lotto winingNumbers = lottoCreateService.createWinningLotto(inputView.printWiningNumbers());
+        return Optional.of(winingNumbers);
     }
 
     private Optional<Bonus> getBonusNumber() {
-        try {
-            Bonus bonusNumber = lottoCreateService.createWinningLottoBonus(inputView.printBonusNumber());
-            return Optional.of(bonusNumber);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            return Optional.empty();
-        }
+        Bonus bonusNumber = lottoCreateService.createWinningLottoBonus(inputView.printBonusNumber());
+        return Optional.of(bonusNumber);
     }
 
     private MatchCount matchLotto(List<Lotto> lottoTicket, WiningNumbers winingNumbers) {
