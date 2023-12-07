@@ -3,8 +3,8 @@ package lotto.view;
 import java.util.List;
 import java.util.Map;
 import lotto.domain.entity.Lotto;
+import lotto.domain.entity.Rank;
 import lotto.domain.entity.WiningStatistics;
-import lotto.domain.entity.WiningType;
 
 public class OutputView {
 
@@ -32,27 +32,27 @@ public class OutputView {
         stringBuffer.append(NEW_LINE);
         stringBuffer.append(OUTPUT_WINING_HEADER);
         stringBuffer.append(OUTPUT_THREE_BAR);
-        Map<WiningType, Integer> matchCount = statistics.matchCount();
-        for (WiningType winingType : WiningType.getWiningCountEmptyMap().keySet()) {
-            addWiningCountString(winingType, stringBuffer, matchCount);
+        Map<Rank, Integer> matchCount = statistics.matchCount();
+        for (Rank rank : Rank.getWiningCountEmptyMap().keySet()) {
+            addWiningCountString(rank, stringBuffer, matchCount);
         }
         stringBuffer.append(String.format(OUTPUT_RATE_OF_RETUN, statistics.rateOfReturn()));
         System.out.println(stringBuffer);
     }
 
-    private void addWiningCountString(WiningType winingType, StringBuffer stringBuffer
-            , Map<WiningType, Integer> matchCount) {
-        if (winingType == WiningType.ZERO) {
+    private void addWiningCountString(Rank rank, StringBuffer stringBuffer
+            , Map<Rank, Integer> matchCount) {
+        if (rank == Rank.ZERO) {
             return;
         }
 
-        stringBuffer.append(String.format(OUTPUT_WINING_CORRECT_COUNT, winingType.getCorrectCount()));
-        if (winingType.hasBonus()) {
+        stringBuffer.append(String.format(OUTPUT_WINING_CORRECT_COUNT, rank.getCorrectCount()));
+        if (rank.hasBonus()) {
             stringBuffer.append(OUTPUT_HAS_BONUS);
         }
-        stringBuffer.append(String.format(OUTPUT_WINING_AMOUNT, winingType.getAmount()));
+        stringBuffer.append(String.format(OUTPUT_WINING_AMOUNT, rank.getAmount()));
         stringBuffer.append(OUTPUT_BAR);
-        stringBuffer.append(String.format(OUTPUT_WINING_COUNT, matchCount.get(winingType)));
+        stringBuffer.append(String.format(OUTPUT_WINING_COUNT, matchCount.get(rank)));
         stringBuffer.append(NEW_LINE);
     }
 }

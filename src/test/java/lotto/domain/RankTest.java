@@ -2,12 +2,12 @@ package lotto.domain;
 
 import java.util.Arrays;
 import lotto.domain.entity.Lotto;
-import lotto.domain.entity.WiningType;
+import lotto.domain.entity.Rank;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class WiningTypeTest {
+public class RankTest {
 
     @Test
     @DisplayName("1등에 담청됐다. 당첨 번호 1, 4, 15, 26, 30, 45 보너스 번호 : 33")
@@ -17,10 +17,10 @@ public class WiningTypeTest {
         int bonus = 33;
         Lotto lotto = new Lotto(Arrays.asList(1, 4, 15, 26, 30, 45));
         //when
-        WiningType winingType = WiningType.findByWiningType(lotto.countCorrectNumbers(winingNumbers),
+        Rank rank = Rank.getRankByLottoCount(lotto.countCorrectNumbers(winingNumbers),
                 lotto.containNumber(bonus));
         //then
-        Assertions.assertEquals(winingType, WiningType.ONE);
+        Assertions.assertEquals(rank, Rank.ONE);
     }
 
     @Test
@@ -31,10 +31,10 @@ public class WiningTypeTest {
         int bonus = 33;
         Lotto lotto = new Lotto(Arrays.asList(1, 4, 15, 26, 33, 45));
         //when
-        WiningType winingType = WiningType.findByWiningType(lotto.countCorrectNumbers(winingNumbers),
+        Rank rank = Rank.getRankByLottoCount(lotto.countCorrectNumbers(winingNumbers),
                 lotto.containNumber(bonus));
         //then
-        Assertions.assertEquals(winingType, WiningType.TWO);
+        Assertions.assertEquals(rank, Rank.TWO);
     }
 
     @Test
@@ -45,10 +45,10 @@ public class WiningTypeTest {
         int bonus = 33;
         Lotto lotto = new Lotto(Arrays.asList(1, 4, 15, 26, 30, 43));
         //when
-        WiningType winingType = WiningType.findByWiningType(lotto.countCorrectNumbers(winingNumbers),
+        Rank rank = Rank.getRankByLottoCount(lotto.countCorrectNumbers(winingNumbers),
                 lotto.containNumber(bonus));
         //then
-        Assertions.assertEquals(winingType, WiningType.THREE);
+        Assertions.assertEquals(rank, Rank.THREE);
     }
 
     @Test
@@ -59,10 +59,10 @@ public class WiningTypeTest {
         int bonus = 33;
         Lotto lotto = new Lotto(Arrays.asList(1, 4, 15, 26, 41, 43));
         //when
-        WiningType winingType = WiningType.findByWiningType(lotto.countCorrectNumbers(winingNumbers),
+        Rank rank = Rank.getRankByLottoCount(lotto.countCorrectNumbers(winingNumbers),
                 lotto.containNumber(bonus));
         //then
-        Assertions.assertEquals(winingType, WiningType.FOUR);
+        Assertions.assertEquals(rank, Rank.FOUR);
     }
 
     @Test
@@ -73,10 +73,10 @@ public class WiningTypeTest {
         int bonus = 33;
         Lotto lotto = new Lotto(Arrays.asList(1, 4, 15, 22, 41, 43));
         //when
-        WiningType winingType = WiningType.findByWiningType(lotto.countCorrectNumbers(winingNumbers),
+        Rank rank = Rank.getRankByLottoCount(lotto.countCorrectNumbers(winingNumbers),
                 lotto.containNumber(bonus));
         //then
-        Assertions.assertEquals(winingType, WiningType.FIVE);
+        Assertions.assertEquals(rank, Rank.FIVE);
     }
 
 }

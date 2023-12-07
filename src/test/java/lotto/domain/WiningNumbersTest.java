@@ -4,8 +4,8 @@ import java.util.List;
 import lotto.domain.entity.Bonus;
 import lotto.domain.entity.Lotto;
 import lotto.domain.entity.MatchCount;
+import lotto.domain.entity.Rank;
 import lotto.domain.entity.WiningNumbers;
-import lotto.domain.entity.WiningType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -24,7 +24,7 @@ class WiningNumbersTest {
 
         // when
         MatchCount matchCount = winingNumbers.countWining(lottos);
-        int winingCount = matchCount.getMatchCount().get(WiningType.FIVE);
+        int winingCount = matchCount.getMatchCount().get(Rank.FIVE);
 
         // then
         Assertions.assertEquals(winingCount, 1);
@@ -43,7 +43,7 @@ class WiningNumbersTest {
 
         // when
         MatchCount matchCount = winingNumbers.countWining(lottos);
-        int winingCount = matchCount.getMatchCount().get(WiningType.FIVE);
+        int winingCount = matchCount.getMatchCount().get(Rank.FIVE);
 
         // then
         Assertions.assertEquals(winingCount, 2);
@@ -62,7 +62,7 @@ class WiningNumbersTest {
 
         // when
         MatchCount matchCount = winingNumbers.countWining(lottos);
-        int winingCount = matchCount.getMatchCount().get(WiningType.ONE);
+        int winingCount = matchCount.getMatchCount().get(Rank.ONE);
 
         // then
         Assertions.assertEquals(winingCount, 1);
@@ -87,7 +87,7 @@ class WiningNumbersTest {
 
         // when
         MatchCount matchCount = winingNumbers.countWining(lottos);
-        int winingCount = matchCount.getMatchCount().get(WiningType.TWO);
+        int winingCount = matchCount.getMatchCount().get(Rank.TWO);
 
         // then
         Assertions.assertEquals(winingCount, 10);

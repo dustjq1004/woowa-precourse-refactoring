@@ -14,11 +14,11 @@ public class WiningNumbers {
     }
 
     public MatchCount countWining(List<Lotto> lottos) {
-        Map<WiningType, Integer> winingCountMap = WiningType.getWiningCountEmptyMap();
+        Map<Rank, Integer> winingCountMap = Rank.getWiningCountEmptyMap();
         lottos.forEach(lotto -> {
             int correctCount = lotto.countCorrectNumbers(numbers);
             boolean hasBonus = bonus.compareNumber(lotto);
-            WiningType wining = WiningType.findByWiningType(correctCount, hasBonus);
+            Rank wining = Rank.getRankByLottoCount(correctCount, hasBonus);
             winingCountMap.computeIfPresent(wining, (key, count) -> ++count);
         });
         return new MatchCount(winingCountMap);

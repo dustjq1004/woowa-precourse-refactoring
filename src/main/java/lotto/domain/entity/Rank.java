@@ -5,7 +5,7 @@ import java.util.Comparator;
 import java.util.Map;
 import java.util.TreeMap;
 
-public enum WiningType {
+public enum Rank {
     ONE("1등", 6, false, 2000000000),
     TWO("2등", 5, true, 30000000),
     THREE("3등", 5, false, 1500000),
@@ -18,24 +18,24 @@ public enum WiningType {
     private boolean hasBonus;
     private long amount;
 
-    WiningType(String name, int correctCount, boolean hasBonus, long amount) {
+    Rank(String name, int correctCount, boolean hasBonus, long amount) {
         this.name = name;
         this.correctCount = correctCount;
         this.hasBonus = hasBonus;
         this.amount = amount;
     }
 
-    public static WiningType findByWiningType(int correctCount, boolean hasBonus) {
+    public static Rank getRankByLottoCount(int correctCount, boolean hasBonus) {
         return Arrays.stream(values())
                 .filter(winingType -> winingType.isCorrectCount(correctCount) && winingType.hasBonus == hasBonus)
                 .findFirst()
                 .orElse(ZERO);
     }
 
-    public static Map<WiningType, Integer> getWiningCountEmptyMap() {
-        Map<WiningType, Integer> winingCounterMap = new TreeMap<>(Comparator.reverseOrder());
-        for (WiningType winingType : values()) {
-            winingCounterMap.put(winingType, 0);
+    public static Map<Rank, Integer> getWiningCountEmptyMap() {
+        Map<Rank, Integer> winingCounterMap = new TreeMap<>(Comparator.reverseOrder());
+        for (Rank rank : values()) {
+            winingCounterMap.put(rank, 0);
         }
         return winingCounterMap;
     }

@@ -9,9 +9,9 @@ import java.util.Map;
 
 public class MatchCount {
 
-    private final Map<WiningType, Integer> matchCount;
+    private final Map<Rank, Integer> matchCount;
 
-    public MatchCount(final Map<WiningType, Integer> matchCount) {
+    public MatchCount(final Map<Rank, Integer> matchCount) {
         this.matchCount = matchCount;
     }
 
@@ -24,13 +24,13 @@ public class MatchCount {
 
     private long sumAmount() {
         long totAmount = 0;
-        for (WiningType winingType : matchCount.keySet()) {
-            totAmount += matchCount.getOrDefault(winingType, 0) * winingType.getAmount();
+        for (Rank rank : matchCount.keySet()) {
+            totAmount += matchCount.getOrDefault(rank, 0) * rank.getAmount();
         }
         return totAmount;
     }
 
-    public Map<WiningType, Integer> getMatchCount() {
+    public Map<Rank, Integer> getMatchCount() {
         return Collections.unmodifiableMap(matchCount);
     }
 }
