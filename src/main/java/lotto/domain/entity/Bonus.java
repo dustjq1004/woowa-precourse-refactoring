@@ -17,7 +17,7 @@ public class Bonus {
 
     private void validateRange(int bonus) {
         if (bonus < MIN_LOTTO_NUMBER || MAX_LOTTO_NUMBER < bonus) {
-            throw new ClientException(MESSAGE_RANGE_NUMBER);
+            throw new ClientException(MESSAGE_RANGE_NUMBER.getMessage());
         }
     }
 
