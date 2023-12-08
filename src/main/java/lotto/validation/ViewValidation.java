@@ -16,7 +16,7 @@ public class ViewValidation {
     }
 
     public static void validateCommaNumeric(String numbers) {
-        if (COMMA_NUMERIC_REGEX.matcher(numbers).matches()) {
+        if (!COMMA_NUMERIC_REGEX.matcher(numbers).matches()) {
             throw new ClientException(ExceptionMessage.MESSAGE_COMMA_NUMERIC.getMessage());
         }
     }
