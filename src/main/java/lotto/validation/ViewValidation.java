@@ -10,13 +10,13 @@ public class ViewValidation {
 
     public static void validateNumeric(String number) {
         if (!number.matches(NUMERIC_REGEX)) {
-            throw new ClientException(ExceptionMessage.MESSAGE_IS_NUMERIC);
+            throw new ClientException(ExceptionMessage.MESSAGE_IS_NUMERIC.getMessage());
         }
     }
 
     public static void validateCommaNumeric(String numbers) {
         if (!numbers.matches(COMMA_NUMERIC_REGEX)) {
-            throw new ClientException(ExceptionMessage.MESSAGE_COMMA_NUMERIC);
+            throw new ClientException(ExceptionMessage.MESSAGE_COMMA_NUMERIC.getMessage());
         }
     }
 }
