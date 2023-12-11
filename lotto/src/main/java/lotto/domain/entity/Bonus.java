@@ -4,8 +4,6 @@ import static lotto.common.Constants.MAX_LOTTO_NUMBER;
 import static lotto.common.Constants.MIN_LOTTO_NUMBER;
 import static lotto.exception.ExceptionMessage.MESSAGE_RANGE_NUMBER;
 
-import lotto.exception.ClientException;
-
 public class Bonus {
 
     private final int bonus;
@@ -17,7 +15,7 @@ public class Bonus {
 
     private void validateRange(int bonus) {
         if (bonus < MIN_LOTTO_NUMBER || MAX_LOTTO_NUMBER < bonus) {
-            throw new ClientException(MESSAGE_RANGE_NUMBER.getMessage());
+            throw new IllegalArgumentException(MESSAGE_RANGE_NUMBER.getMessage());
         }
     }
 

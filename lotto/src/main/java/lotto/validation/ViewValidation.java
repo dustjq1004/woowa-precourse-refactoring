@@ -1,7 +1,6 @@
 package lotto.validation;
 
 import java.util.regex.Pattern;
-import lotto.exception.ClientException;
 import lotto.exception.ExceptionMessage;
 
 public class ViewValidation {
@@ -11,13 +10,13 @@ public class ViewValidation {
 
     public static void validateNumeric(String number) {
         if (!NUMERIC_REGEX.matcher(number).matches()) {
-            throw new ClientException(ExceptionMessage.MESSAGE_IS_NUMERIC.getMessage());
+            throw new IllegalArgumentException(ExceptionMessage.MESSAGE_IS_NUMERIC.getMessage());
         }
     }
 
     public static void validateCommaNumeric(String numbers) {
         if (!COMMA_NUMERIC_REGEX.matcher(numbers).matches()) {
-            throw new ClientException(ExceptionMessage.MESSAGE_COMMA_NUMERIC.getMessage());
+            throw new IllegalArgumentException(ExceptionMessage.MESSAGE_COMMA_NUMERIC.getMessage());
         }
     }
 }
