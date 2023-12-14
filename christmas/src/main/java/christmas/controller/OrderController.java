@@ -19,14 +19,13 @@ public class OrderController {
         int totalOrderPrice = preOrder.getTotalOrderPrice();
         int totalDiscountedPrice = reservation.getTotalDiscountedPrice();
         int expectedAmount = totalOrderPrice + totalDiscountedPrice;
-        return new ReservationConfirm(
-                preOrder.getOrederMap(),
-                totalOrderPrice,
-                totalDiscountedPrice,
-                expectedAmount,
-                reservation.getDiscountDetails(),
-                reservation.getGiveAways(),
-                reservation.getBadge()
-        );
+
+        return new ReservationConfirm.Builder(preOrder.getOrederMap(), reservation.getBadge())
+                .totOrderAmount(totalOrderPrice)
+                .totDiscountAmount(totalDiscountedPrice)
+                .expectedAmount(expectedAmount)
+                .discountDetails(reservation.getDiscountDetails())
+                .giveAway(reservation.getGiveAways())
+                .build();
     }
 }
