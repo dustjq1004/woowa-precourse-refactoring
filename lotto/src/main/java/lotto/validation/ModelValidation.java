@@ -32,7 +32,13 @@ public class ModelValidation {
         }
     }
 
-    public static void validateRange(List<Integer> numbers) {
+    public static void validateRange(int bonus) {
+        if (bonus < MIN_LOTTO_NUMBER || MAX_LOTTO_NUMBER < bonus) {
+            throw new IllegalArgumentException(getMessage(MESSAGE_RANGE_NUMBER));
+        }
+    }
+
+    public static void validateRangeList(List<Integer> numbers) {
         numbers.forEach((number) -> {
             if (number < MIN_LOTTO_NUMBER || MAX_LOTTO_NUMBER < number) {
                 throw new IllegalArgumentException(getMessage(MESSAGE_RANGE_NUMBER));
