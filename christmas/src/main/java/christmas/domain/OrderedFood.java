@@ -39,8 +39,20 @@ public class OrderedFood {
 
     @Override
     public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof OrderedFood)) {
+            return false;
+        }
         OrderedFood other = (OrderedFood) obj;
         return other.compareTo(menu);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 31 * Integer.hashCode(menu.hashCode());
+        return result;
     }
 
     public int calculatePrice() {
