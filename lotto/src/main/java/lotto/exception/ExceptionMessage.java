@@ -18,7 +18,7 @@ public enum ExceptionMessage {
         this.message = PREFIX + SPACE + message;
     }
 
-    public String getMessage() {
-        return message;
+    public static String getMessage(ExceptionMessage exceptionMessage) {
+        return exceptionMessage.message;
     }
 }
